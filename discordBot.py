@@ -17,9 +17,9 @@ class myBot(discord.Client):
             response = getResponse(message.content)
             if "choices" in response.keys():
                 for text in response["choices"]:
-                    await message.channel.send(text["text"], reference=message)
+                    await message.channel.reply(text["text"], mention_author=True)
             else:
-                await message.channel.send("Choices key missing, no output.", reference=message)
+                await message.channel.reply("Choices key missing, no output.", mention_author=True)
 
 intents = discord.Intents.default()
 intents.message_content = True
