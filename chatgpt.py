@@ -10,12 +10,12 @@ FREQUENCY_PENALTY = 0
 PRESENCE_PENALTY = 0
 
 def displayResponse(response):
-    print("Réponse :")
+    print("Response :")
     if "choices" in response.keys():
         for text in response["choices"]:
             print(text["text"])
     else:
-        print("Problème output")
+        print("Choices key missing, no output.")
 
 def getResponse(userInput):
     response = openai.Completion.create(
